@@ -1,0 +1,10 @@
+@import "include-media";
+
+$breakpoints: (
+  "phone": 768px,
+  "tablet": 1024px,
+  "desktop": 1920px,
+) !default;
+
+//Colors
+$primary: #000000;

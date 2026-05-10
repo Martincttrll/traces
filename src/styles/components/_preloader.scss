@@ -1,0 +1,55 @@
+@use "../utils" as *;
+.preloader {
+  @extend %cover;
+  @extend %center;
+  overflow-x: hidden;
+  background: white;
+  color: black;
+  font-size: 4rem;
+  overflow: hidden;
+  flex-direction: column;
+  z-index: 99999;
+}
+
+.preloader__title {
+  position: relative;
+  text-align: center;
+  transform-origin: 60px 55%;
+  font-family: "baunk";
+  font-size: 15rem;
+  @include media("<tablet") {
+    font-size: 40rem;
+  }
+}
+
+.preloader__bar {
+  position: relative;
+  width: calc(30rem - 30px);
+
+  height: 2px;
+  border-radius: 10px;
+  background-color: rgb(black, 0.5);
+
+  .preloader__bar__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: black;
+  }
+  @include media("<tablet") {
+    width: calc(80rem - 30px);
+  }
+}
+.preloader__bar__wrapper {
+  margin-top: 20px;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.preloader__percent {
+  font-size: 12px;
+}

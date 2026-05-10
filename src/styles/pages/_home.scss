@@ -1,0 +1,11 @@
+@use "../shared" as *;
+@use "../utils" as *;
+.home {
+  @extend %page;
+  overflow-x: hidden;
+  // position: relative;
+}
+
+.home p {
+  @extend %text-16;
+}

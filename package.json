@@ -1,0 +1,27 @@
+{
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf _site",
+    "dev": "npm run clean && eleventy --config=.eleventy.js --serve --incremental",
+    "build": "npm run clean && eleventy --config=.eleventy.js"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-pug": "^1.0.0",
+    "@11ty/eleventy-plugin-vite": "^6.0.0",
+    "@prismicio/client": "^7.18.0",
+    "dotenv": "^16.4.7",
+    "events": "^3.3.0",
+    "gsap": "^3.12.7",
+    "include-media": "^2.0.0",
+    "lenis": "^1.2.3",
+    "lil-gui": "^0.20.0",
+    "lodash": "^4.17.21",
+    "three": "^0.175.0",
+    "ua-parser-js": "^2.0.3",
+    "vite-plugin-glsl": "^1.5.1"
+  },
+  "devDependencies": {
+    "sass": "^1.86.0"
+  }
+}

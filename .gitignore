@@ -1,0 +1,14 @@
+node_modules
+dist
+_site
+package-lock.json
+
+
+.env
+.env.local
+.env.development
+.env.production
+
+
+.vscode
+.DS_Store

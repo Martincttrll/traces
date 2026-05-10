@@ -1,0 +1,116 @@
+@use "../utils/" as *;
+
+nav.nav__wrapper {
+  position: sticky;
+  z-index: 4;
+  justify-content: space-between;
+  padding: 2.5rem;
+  display: none;
+  @include media("<tablet") {
+    padding: 20px;
+  }
+}
+nav.nav__wrapper.active {
+  display: flex;
+}
+a.nav__logo {
+  text-decoration: none;
+  font-size: 2rem;
+  mix-blend-mode: difference;
+  text-transform: uppercase;
+  @include media("<tablet") {
+    font-size: 8rem;
+  }
+}
+
+.nav__menu__btn {
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  & .nav__menu__btn__text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    pointer-events: none;
+
+    span {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+  &:hover .nav__menu__btn__text span {
+    opacity: 1;
+  }
+  .close {
+    pointer-events: none;
+  }
+}
+
+.nav__menu__wrapper {
+  @extend %cover;
+  @extend %center;
+  z-index: 3;
+  backdrop-filter: blur(10px);
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  flex-direction: column;
+  opacity: 0;
+}
+.nav__menu__link {
+  position: relative;
+  text-decoration: none;
+  font-family: "baunk";
+  font-size: 5rem;
+  mix-blend-mode: difference;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  pointer-events: none;
+  opacity: 0;
+
+  &:not(.disabled)::before {
+    content: "";
+    height: 0.8rem;
+    width: 0;
+    position: absolute;
+    left: -20px;
+    top: 40%;
+    transition: width 0.5s ease;
+  }
+  &:not(.disabled):hover::before,
+  &.current::before {
+    width: calc(100% + 40px);
+  }
+
+  &.disabled {
+    &::after {
+      opacity: 1 !important;
+      content: "comming\Asoon";
+      text-align: center;
+      position: absolute;
+      // transform: ;
+      font-family: "wagon";
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+      right: -13rem;
+      transform: scale(0);
+      transition: transform 0.4s cubic-bezier(0.17, 0.67, 0.19, 1.01);
+      white-space: pre;
+    }
+    &:hover::after {
+      transform: scale(1) rotateZ(13deg);
+    }
+  }
+  @include media("<tablet") {
+    font-size: 8rem;
+  }
+}

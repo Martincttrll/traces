@@ -1,0 +1,25 @@
+@use "../utils/" as *;
+
+%title-30 {
+  font-size: 3rem;
+  @include media("<tablet") {
+    font-size: 14rem;
+  }
+}
+%title-50 {
+  font-size: 5rem;
+  @include media("<tablet") {
+    font-size: 16rem;
+  }
+}
+
+%title-96 {
+  font-size: 9.6rem;
+  @include media("<tablet") {
+    font-size: 18rem;
+  }
+}
+
+%title-200 {
+  font-size: 20rem;
+}

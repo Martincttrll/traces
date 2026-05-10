@@ -1,0 +1,18 @@
+%cover {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+%center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+%content-padding {
+  padding-left: calc(100vw / 12);
+  padding-right: calc(100vw / 12);
+}
