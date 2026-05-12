@@ -17,9 +17,11 @@ export class Preloader extends Component {
     this.entryStartTime = performance.now();
 
     //Disable preloader for dev
-    this.emit("completed");
-    this.emit("animationCompleted");
-    this.destroy();
+    requestAnimationFrame(() => {
+      this.emit("completed");
+      this.emit("animationCompleted");
+      this.destroy();
+    });
     // this.loadAssets().then(() => {
     //   const elapsed = performance.now() - this.entryStartTime;
     //   const delay = Math.max(0, this.minDisplayTime - elapsed);
@@ -68,7 +70,7 @@ export class Preloader extends Component {
               window.PRELOADED[src] = audio;
               onAssetLoad();
             },
-            { once: true }
+            { once: true },
           );
           audio.addEventListener("error", onAssetLoad, { once: true });
         } else if (src.match(/\.(mp4|webm)$/)) {
@@ -83,7 +85,7 @@ export class Preloader extends Component {
               window.PRELOADED[src] = video;
               onAssetLoad();
             },
-            { once: true }
+            { once: true },
           );
           video.addEventListener("error", onAssetLoad, { once: true });
         } else {
@@ -91,11 +93,11 @@ export class Preloader extends Component {
           img.src = src;
           img.crossOrigin = "anonymous";
 
-          (img.onload = () => {
+          ((img.onload = () => {
             window.PRELOADED[src] = img;
             onAssetLoad();
           }),
-            { once: true };
+            { once: true });
           img.onerror = onAssetLoad;
         }
       });

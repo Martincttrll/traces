@@ -1,4 +1,7 @@
 @use "../utils" as *;
 %page {
   @extend %cover;
+  background-color: $dark;
+  color: $light;
+  font-family: "Metropolis", sans-serif;
 }
