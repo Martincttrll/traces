@@ -10,7 +10,7 @@ class App {
     console.log("©2025 - Boilerplate by MartinCtrl");
     this.createContent();
     this.createPreloader();
-    this.createNavigation();
+    // this.createNavigation();
     this.createPages();
     this.createCanvas();
     this.addEventListeners();
@@ -36,7 +36,7 @@ class App {
     this.preloader.once("completed", this.onPreloaded.bind(this));
     this.preloader.once(
       "animationCompleted",
-      this.onPreloaderAnimationCompleted.bind(this)
+      this.onPreloaderAnimationCompleted.bind(this),
     );
   }
 
@@ -57,6 +57,11 @@ class App {
     if (this.canvas) {
       this.canvas.update(this.page.smoothScroll.scroll);
     }
+    each(this.pages, (page) => {
+      if (page && typeof page.update === "function") {
+        page.update();
+      }
+    });
   }
 
   /*
@@ -69,6 +74,9 @@ class App {
     this.canvas.onPreloaded();
     this.update();
     this.page.setCanvasPage(this.canvas.canvasPage);
+    requestAnimationFrame(() => {
+      this.onResize(); //Vraiment resizes tous les elements cavans
+    });
   }
 
   onPreloaderAnimationCompleted() {
@@ -79,12 +87,9 @@ class App {
     if (this.page && this.page.onResize) {
       this.page.onResize();
     }
-
-    window.requestAnimationFrame(() => {
-      if (this.canvas && this.canvas.onResize) {
-        this.canvas.onResize();
-      }
-    });
+    if (this.canvas && this.canvas.onResize) {
+      this.canvas.onResize();
+    }
   }
 
   onPopState = () => {

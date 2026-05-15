@@ -27,7 +27,7 @@ export default class Canvas {
       75,
       window.innerWidth / window.innerHeight,
       0.1,
-      1000
+      1000,
     );
 
     this.camera.position.set(0, 0, 5);
@@ -47,33 +47,6 @@ export default class Canvas {
 
   createHome() {
     this.home = new Home({
-      scene: this.scene,
-      sizes: this.sizes,
-      camera: this.camera,
-    });
-  }
-
-  createDiscography() {
-    this.discography = new Discography({
-      scene: this.scene,
-      sizes: this.sizes,
-      camera: this.camera,
-      transition: this.transition,
-    });
-  }
-
-  createAlbum() {
-    this.album = new Album({
-      scene: this.scene,
-      sizes: this.sizes,
-      camera: this.camera,
-      group: this.discography.group,
-      transition: this.transition,
-    });
-  }
-
-  createTransitions() {
-    this.transition = new Transition({
       scene: this.scene,
       sizes: this.sizes,
       camera: this.camera,
@@ -116,5 +89,8 @@ export default class Canvas {
       this.canvasPage.show(isPreloaded);
     }
     this.template = template;
+
+    console.log(template);
+    console.log(this.canvasPage);
   }
 }

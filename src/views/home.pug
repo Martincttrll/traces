@@ -9,6 +9,7 @@ block content
     .home
         .home__wrapper 
             .home__hero__wrapper
+                canvas.home__canvas__particles 
                 .home__title__wrapper
                     h1.home__title 
                         span Traces
@@ -18,10 +19,11 @@ block content
                         b sans entendre parler du VIH.
                 .home__hero__banner 
                     .banner__text__wrapper
-                        span.banner__label Check tes traces
+                        .banner__laber__wrapper 
+                            span.banner__label Check tes traces
                             img(src="/img/arrow-right.svg", alt="arrow right", srcset="")
                         span.banner__info Test anonyme • 2min
-                    img(src="/img/banner.svg", alt="banner", srcset="")
+                    img.banner__img(src="/img/banner.svg", alt="banner", srcset="")
             .home__main__wrapper 
                 img.text__shape(src="/img/shape1.svg", alt="text container", srcset="")
                 img.text__shape(src="/img/shape2.svg", alt="text container", srcset="")

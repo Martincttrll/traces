@@ -19,8 +19,30 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba($dark, 0) 45%,
+      rgba($dark, 0.4) 65%,
+      rgba($dark, 0.8) 85%,
+      rgba($dark, 1) 100%
+    );
+    pointer-events: none;
+  }
+}
+.home__canvas__particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .home__title__wrapper {
+  z-index: 2;
 }
 h1.home__title {
   span {
@@ -42,12 +64,15 @@ p.home__baseline {
 }
 .home__hero__banner {
   position: relative;
+  z-index: 2;
   margin-top: 140px;
   width: 100%;
-  img {
+  img.banner__img {
     position: absolute;
     transform: translate(0, -50%);
     top: 50%;
+    width: 100%;
+    // height: 13.3rem;
     z-index: 0;
   }
 }
@@ -62,24 +87,42 @@ p.home__baseline {
   width: 100%;
   box-sizing: border-box;
 }
+.banner__laber__wrapper {
+  display: flex;
+  align-items: center;
+  img {
+    width: 5.5rem;
+    margin-bottom: 5px;
+    margin-left: 20px;
+  }
+}
 span.banner__label {
   font-size: 5.5rem;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: -4px;
-  img {
-    width: 5.5rem;
-    margin-left: 20px;
-  }
+  letter-spacing: -4%;
 }
 span.banner__info {
   font-size: 2.4rem;
 }
 .home__main__wrapper {
+  margin-top: 50px;
+  position: relative;
 }
 img.text__shape {
-}
-img.text__shape {
-}
-img.text__shape {
+  position: absolute;
+  &:nth-child(1) {
+    width: 108.3rem;
+    right: 0;
+  }
+  &:nth-child(2) {
+    width: 75.6rem;
+    top: 26.8rem;
+    left: 0;
+  }
+  &:nth-child(3) {
+    width: 94.1rem;
+    top: 61.7rem;
+    right: 0;
+  }
 }

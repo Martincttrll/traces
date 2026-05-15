@@ -1,4 +1,5 @@
 import Page from "@classes/Page";
+import Particles from "./Particles";
 
 export default class Home extends Page {
   constructor() {
@@ -8,6 +9,7 @@ export default class Home extends Page {
         wrapper: ".home__wrapper",
         mainWrapper: ".home__main__wrapper",
         h1: ".home__title",
+        particlesCanvas: ".home__canvas__particles",
       },
     });
   }
@@ -16,7 +18,18 @@ export default class Home extends Page {
     super.create();
   }
 
+  createParticles() {
+    this.particles = new Particles({ canvas: this.elements.particlesCanvas });
+  }
+
+  update() {
+    if (this.particles) {
+      this.particles.update();
+    }
+  }
+
   show() {
     super.show();
+    this.createParticles();
   }
 }

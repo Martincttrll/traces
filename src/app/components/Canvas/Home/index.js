@@ -11,8 +11,9 @@ export default class Home {
   create() {
     this.mesh = new THREE.Mesh(
       new THREE.BoxGeometry(2, 2, 2),
-      new THREE.MeshBasicMaterial({ color: 0x00ffff })
+      new THREE.MeshBasicMaterial({ color: 0x00ffff }),
     );
+    // this.group.add(this.mesh);
   }
 
   update(scroll) {
@@ -33,6 +34,7 @@ export default class Home {
       this.create();
     }
     this.scene.add(this.group);
+    console.log(this.scene);
   }
   hide() {
     this.scene.remove(this.group);

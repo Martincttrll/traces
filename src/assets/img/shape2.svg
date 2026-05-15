@@ -1,27 +1,10 @@
-<svg width="606" height="512" viewBox="0 0 606 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_dg_2_8)">
-<g clip-path="url(#clip0_2_8)">
-<path d="M-129.526 29.7L376.388 71.0047L383.272 186.865L576 231.612L570.272 481.7L-180 469.075L-140.995 303.882L-11.3665 284.373L-165.089 206.375L-129.526 29.7Z" fill="#FF3600"/>
-</g>
+<svg width="551" height="402" viewBox="0 0 551 402" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_19_20)">
+<path d="M-77.0671 0L373.303 36.7356L379.431 139.78L551 179.577L545.901 402L-122 390.771L-87.277 243.852L28.1195 226.501L-108.726 157.131L-77.0671 0Z" fill="#FF3600"/>
 </g>
 <defs>
-<filter id="filter0_dg_2_8" x="-209.7" y="-4.95911e-05" width="815.4" height="511.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dx="9" dy="10"/>
-<feGaussianBlur stdDeviation="6"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.364706 0 0 0 0 0.223529 0 0 0 0 0.223529 0 0 0 0.74 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2_8"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2_8" result="shape"/>
-<feTurbulence type="fractalNoise" baseFrequency="0.55555558204650879 0.55555558204650879" numOctaves="3" seed="8037" />
-<feDisplacementMap in="shape" scale="59.400001525878906" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
-<feMerge result="effect2_texture_2_8">
-<feMergeNode in="displacedImage"/>
-</feMerge>
-</filter>
-<clipPath id="clip0_2_8">
-<rect width="756" height="452" fill="white" transform="translate(-180 29.7)"/>
+<clipPath id="clip0_19_20">
+<rect width="673" height="402" fill="white" transform="translate(-122)"/>
 </clipPath>
 </defs>
 </svg>
