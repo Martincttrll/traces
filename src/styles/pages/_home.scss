@@ -42,6 +42,7 @@
   height: 100%;
 }
 .home__title__wrapper {
+  pointer-events: none;
   z-index: 2;
 }
 h1.home__title {
@@ -53,11 +54,14 @@ h1.home__title {
     left: 50%;
     opacity: 0;
   }
+  img {
+    width: 80rem;
+  }
 }
 p.home__baseline {
-  margin-top: 30px;
+  margin-top: 26px;
   text-align: center;
-  font-size: 28px;
+  font-size: 2.6rem;
   b {
     font-weight: 700;
   }
@@ -65,8 +69,17 @@ p.home__baseline {
 .home__hero__banner {
   position: relative;
   z-index: 2;
-  margin-top: 140px;
   width: 100%;
+  bottom: -200px;
+  cursor: pointer;
+
+  will-change: transform;
+
+  .banner__laber__wrapper img {
+    // La flèche : on la sort du flux pour l'animer indépendamment
+    display: inline-block;
+    will-change: transform;
+  }
   img.banner__img {
     position: absolute;
     transform: translate(0, -50%);
@@ -74,6 +87,9 @@ p.home__baseline {
     width: 100%;
     // height: 13.3rem;
     z-index: 0;
+
+    transition: filter 0.6s ease;
+    will-change: transform;
   }
 }
 .banner__text__wrapper {
@@ -101,6 +117,8 @@ span.banner__label {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -4%;
+
+  display: inline-block;
 }
 span.banner__info {
   font-size: 2.4rem;
@@ -124,5 +142,17 @@ img.text__shape {
     width: 94.1rem;
     top: 61.7rem;
     right: 0;
+  }
+}
+
+.home__carousel__wrapper {
+  padding-top: 150rem;
+  position: relative;
+  .carousel__item {
+    width: 80%;
+    position: absolute;
+    transform: translate(-50%, 0);
+    left: 50%;
+    visibility: hidden;
   }
 }

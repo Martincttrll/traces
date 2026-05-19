@@ -52,6 +52,7 @@ export default class Page extends EventEmitter {
 
   createSmoothScroll() {
     this.smoothScroll = new SmoothScroll(this.element, this.elements.wrapper);
+    window.smoothScroll = this.smoothScroll;
   }
 
   setCanvasPage(canvasPage) {

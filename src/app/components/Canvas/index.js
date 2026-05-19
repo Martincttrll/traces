@@ -50,6 +50,7 @@ export default class Canvas {
       scene: this.scene,
       sizes: this.sizes,
       camera: this.camera,
+      lenis: this.lenis,
     });
   }
 
