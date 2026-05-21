@@ -14,6 +14,12 @@ export default class Home {
     this.addDebug();
     this.mediaElements = document.querySelectorAll(".carousel__item");
     this.isHoveringCarousel = false;
+
+    this.isDragging = false;
+    this.startY = 0;
+    this.currentY = 0;
+    this.dragVelocity = 0;
+    this.scrollPosition = 0;
   }
 
   createMedia() {
@@ -29,6 +35,7 @@ export default class Home {
   }
 
   createGallery() {
+    this.initDragScroll();
     this.spacing = this.mediaInstances[0].mesh.scale.y * (1 / 18);
     this.mediaInstances.forEach((media, i) => {
       media.mesh.position.z = -i * 0.5;
@@ -118,12 +125,25 @@ export default class Home {
 
     this.group.position.y = worldY - 1;
   }
+
   update(scroll) {
     this.updateY(scroll);
+    const velocity = this.dragVelocity;
+
+    this.onScroll({
+      position: this.scrollPosition,
+      velocity: velocity,
+    });
+
+    // friction (inertie)
+    if (!this.isDragging) {
+      this.scrollPosition *= 0.95;
+      this.dragVelocity *= 0.9;
+    }
   }
 
   onScroll(scrollInfo) {
-    if (!this.mediaInstances || !this.isHoveringCarousel) return;
+    if (!this.mediaInstances) return;
     const { position, velocity } = scrollInfo;
     const total = this.mediaInstances.length;
     const lastIndex = total - 1;
@@ -165,6 +185,38 @@ export default class Home {
           material.opacity = opacity;
         });
       }
+    });
+  }
+  initDragScroll() {
+    window.addEventListener("pointerdown", (e) => {
+      this.isDragging = true;
+      this.startY = e.clientY;
+      this.lastY = e.clientY;
+      this.dragVelocity = 0;
+      document.body.style.cursor = "grabbing";
+    });
+
+    window.addEventListener("pointermove", (e) => {
+      if (!this.isDragging) return;
+
+      const deltaY = e.clientY - this.lastY;
+
+      // inverse pour feeling scroll
+      this.scrollPosition -= deltaY * 0.01;
+
+      this.dragVelocity = deltaY;
+
+      this.lastY = e.clientY;
+    });
+
+    window.addEventListener("pointerup", () => {
+      this.isDragging = false;
+      document.body.style.cursor = "";
+    });
+
+    // mobile fallback
+    window.addEventListener("pointercancel", () => {
+      this.isDragging = false;
     });
   }
 

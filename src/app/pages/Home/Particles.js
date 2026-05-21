@@ -10,13 +10,13 @@ export default class Particles {
 
     this.config = {
       gap: 3, // espacement grille en px
-      noiseScale: 0.002, // zoom du bruit (plus petit = tâches plus larges)
+      noiseScale: 0.001, // zoom du bruit (plus petit = tâches plus larges)
       threshold: 0.01, // seuil de densité (-1 à 1)
       radius: 120, // rayon de répulsion souris en px
       strength: 8, // force du push
       ease: 0.1, // vitesse de retour (0.05 lent → 0.15 rapide)
-      baseColor: "#666",
-      hoverColor: "#666",
+      baseColor: "#565557",
+      hoverColor: "#565557",
     };
     this.mouse = { x: -9999, y: -9999 };
 
@@ -53,7 +53,7 @@ export default class Particles {
             y,
             originX: x,
             originY: y,
-            size: Math.random() * 0.2 + 0.4, // légère variation de taille
+            size: 2, // légère variation de taille
             alpha,
           });
         }
@@ -107,7 +107,7 @@ export default class Particles {
         : `rgba(100, 100, 100, ${p.alpha + 0.5})`;
 
       this.ctx.beginPath();
-      this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      this.ctx.fillRect(p.x - p.size / 2, p.y - p.size / 2, p.size, p.size);
       this.ctx.fill();
     }
   }
